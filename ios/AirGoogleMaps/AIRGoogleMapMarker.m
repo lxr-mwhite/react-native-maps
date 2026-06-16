@@ -59,7 +59,8 @@ CGRect unionRect(CGRect a, CGRect b) {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         markerSnapshotCache = [[NSCache alloc] init];
-        markerSnapshotCache.countLimit = 100;
+        markerSnapshotCache.countLimit = 150;
+        markerSnapshotCache.totalCostLimit = 16 * 1024 * 1024;
     });
     return markerSnapshotCache;
 }
